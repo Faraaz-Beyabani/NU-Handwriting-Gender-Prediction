@@ -20,13 +20,6 @@ train_tort_data = train_data.iloc[:, 4:44]
 
 x = train_tort_data.to_numpy()
 
-print(np.shape(x))
-print(np.shape(y))
-
-print(f'\nThere are {(y==0).sum()} male writers.')
-print(f'\nThere are {(y==1).sum()} male writers.')
-
-
 model = RandomForestClassifier()
 model.fit(X=x, y=y)
 
