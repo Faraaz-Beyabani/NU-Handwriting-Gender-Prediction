@@ -1,0 +1,27 @@
+import numpy as np
+import pandas as pd
+from sklearn.ensamble import RandomForestClassifier
+
+train_data = pd.read_csv('./train.csv')
+train_ans = pd.read_csv('./train_answers.csv')
+
+train_ans = train_ans.iloc[:,1]
+y = np.repeat(train_ans.to_numpy(), 4)
+
+train_tort_data = train_data.iloc[:, 4:44]
+x = train_tort_data.to_numpy()
+
+print(np.shape(x))
+print(np.shape(y))
+
+
+model = RandomForestClassifier()
+model.fit(X=x, y=y)
+Out[103]:
+SGDClassifier()
+In [104]:
+answers = model.predict(X=x)
+In [105]:
+print((answers != y).sum())
+print(answers[:32])
+print(y[:32])
