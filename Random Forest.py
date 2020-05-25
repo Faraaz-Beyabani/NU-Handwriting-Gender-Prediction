@@ -15,8 +15,6 @@ train_ans = pd.read_csv('./train_answers.csv')
 
 train_ans = train_ans.iloc[:,1]
 y = np.repeat(train_ans.to_numpy(), 4)
-Tortuosity features
-
 
 train_tort_data = train_data.iloc[:, 4:44]
 
