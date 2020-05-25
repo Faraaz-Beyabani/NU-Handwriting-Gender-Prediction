@@ -20,7 +20,7 @@ train_chain_data = train_data.iloc[:, 901:5020]
 x = train_chain_data.to_numpy()
 
 
-model = RandomForestClassifier()
+model = RandomForestClassifier(n_estimators=250, min_samples_leaf=3)
 model.fit(X=x, y=y)
 answers = model.predict(X=x)
 print((answers != y).sum())
